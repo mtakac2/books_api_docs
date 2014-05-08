@@ -6,13 +6,17 @@ Notes API is a *short texts saving* service similar to its physical paper presen
 
 # Group Books
 
-## /books
+## /books{?page, per_page}
 ### GET
 Get a list of all books.
 
++ Parameters
+    + page = `1` (optional, integer, `12`) ... Page number
+    + per_page = `10` (optional, integer, `25`) ... Number of records per page
+
 + Response 200 (application/json)
-    + Body 
-    
+    + Body
+
             {
                 [
                     { "id": "1", "title": "Catcher in rye", "author": "J. D. Salinger" },
@@ -20,24 +24,24 @@ Get a list of all books.
                     { "id": "3", "title": "The black obelisk", "author": "E. M. Remarque" }
                 ]
             }
-            
+
 ### POST
 Create new book.
 
 + Request (application/json)
     + Body
-    
+
             {
                 { "title": "Love is just a word", "author": "J. M. Simmel" }
             }
 
 + Response 201 (application/json)
     + Body
-        
+
             {
                 "id": "4", "title": "Love is just a word", "author": "J. M. Simmel"
             }
-    
+
 
 ## /books/{id}
 ### GET
@@ -48,11 +52,11 @@ Get a book details.
 
 + Response 200 (application/json)
     + Body
-    
+
             {
                 "id": "1", "title": "Catcher in rye", "author": "J. D. Salinger"
             }
-            
+
 ### PATCH
 Update a book.
 
@@ -61,14 +65,14 @@ Update a book.
 
 + Request (application/json)
     + Body
-    
+
             {
                 "title": "Catcher in the rye"
             }
 
 + Response 200 (application/json)
     + Body
-    
+
             {
                 "id": "1", "title": "Catcher in the rye", "author": "J. D. Sallinger"
             }
@@ -78,5 +82,5 @@ Delete a book
 
 + Parameters
     + id (required, string, `1`) ... Book ID
-    
+
 + Response 204
