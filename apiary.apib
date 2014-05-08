@@ -16,70 +16,56 @@ Get a list of all books.
 + Response 200 (application/json)
     + Body
 
-            {
-                [
-                    { "id": "1", "title": "Catcher in rye", "author": "J. D. Salinger" },
-                    { "id": "2", "title": "Dracula", "author": "B. Stoker" },
-                    { "id": "3", "title": "The black obelisk", "author": "E. M. Remarque" }
-                ]
-            }
+            [
+                  {
+                        "id": 1,
+                        "title": "Catcher in the ray",
+                        "author": "J. D. Salinger",
+                        "created_at": "2014-05-08T11:03:11.442Z",
+                        "updated_at": "2014-05-08T11:03:11.442Z"
+                  },
+                  {
+                        "id": 2,
+                        "title": "Game of thrones",
+                        "author": "G. G. Martin",
+                        "created_at": "2014-05-08T11:03:11.500Z",
+                        "updated_at": "2014-05-08T11:03:11.500Z"
+                  }
+            ]
 
+## /books
 ### POST
-Create new book.
+Create new book
 
 + Request (application/json)
     + Body
 
-            {
-                { "title": "Love is just a word", "author": "J. M. Simmel" }
-            }
+            { "title": "Love is just a word", "author": "M. M. Simmel" }
 
 + Response 201 (application/json)
     + Body
 
             {
-                "id": "4", "title": "Love is just a word", "author": "J. M. Simmel"
+                "id": "3",
+                "title": "Love is just a word",
+                "author": "M. M. Simmel",
+                "created_at": "2014-05-08T11:03:11.442Z",
+                "updated_at": "2014-05-08T11:03:11.442Z"
             }
-
 
 ## /books/{id}
-### GET
-Get a book details.
+Get book details.
 
 + Parameters
-    + id (required, string, `1`) ... Book ID
+    + id (required, integer, `1`) ... Book ID
 
 + Response 200 (application/json)
     + Body
 
             {
-                "id": "1", "title": "Catcher in rye", "author": "J. D. Salinger"
+                "id": "3",
+                "title": "Love is just a word",
+                "author": "M. M. Simmel",
+                "created_at": "2014-05-08T11:03:11.442Z",
+                "updated_at": "2014-05-08T11:03:11.442Z"
             }
-
-### PATCH
-Update a book.
-
-+ Parameters
-    + id (required, string, `1`) ... Book ID
-
-+ Request (application/json)
-    + Body
-
-            {
-                "title": "Catcher in the rye"
-            }
-
-+ Response 200 (application/json)
-    + Body
-
-            {
-                "id": "1", "title": "Catcher in the rye", "author": "J. D. Sallinger"
-            }
-
-### DELETE
-Delete a book
-
-+ Parameters
-    + id (required, string, `1`) ... Book ID
-
-+ Response 204
